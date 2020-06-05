@@ -1,10 +1,12 @@
 <?php
 session_start();
-
-if ($_SERVER['QUERY_STRING'] == 'noname') {
+// check empty query string or noname
+if ($_SERVER['QUERY_STRING'] == 'noname' || $_SERVER['QUERY_STRING'] == '') {
   unset($_SESSION['name']);
 }
+// print session set it by specials.php
 $name = $_SESSION['name'] ?? 'Guest';
+// print gender set it by specials.php
 $gender = $_COOKIE['gender'] ?? 'Unknown';
 
 ?>

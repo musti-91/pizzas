@@ -12,7 +12,7 @@ $email         =
 	$ingredients   = '';
 
 if (isset($_POST['submit'])) {
-
+	// validate Email
 	if (empty($_POST['email'])) {
 		$errors['email'] = 'Email is not valid!';
 	} else {
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 			$errors['email'] = "";
 		}
 	}
-
+	// validate title
 	if (empty($_POST['title'])) {
 		$errors['title'] = 'Title cannot be empty <br/>';
 	} else {
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
 			$errors['title'] = "";
 		}
 	}
-
+	// validate ingredients
 	if (empty($_POST['ingredients'])) {
 		$errors['ingredients'] = 'At least one ingredient is required <br/>';
 	} else {
@@ -47,11 +47,12 @@ if (isset($_POST['submit'])) {
 		}
 	}
 
+	// check errors
 	if (array_filter($errors)) {
 		$error_message = 'Fix errors before submitting the form!';
 	} else {
 		// redirect to homepage
-		// prevent 
+		// prevent attacks
 		$email = mysqli_real_escape_string($conn, $_POST['email']);
 		$title = mysqli_real_escape_string($conn, $_POST['title']);
 		$ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);

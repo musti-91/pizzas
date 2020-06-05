@@ -1,6 +1,6 @@
 <?php
 include('config/db_connect.php');
-// POST QUERY
+// DELETE POST QUERY
 if (isset($_POST['delete'])) {
 
     $id_to_delete = mysqli_real_escape_string($conn, $_POST['id_to_delete']);
@@ -15,7 +15,7 @@ if (isset($_POST['delete'])) {
         echo 'query error:' . mysqli_error($conn);
     }
 }
-// check get request id query
+// GET ID QUERY
 if (isset($_GET['id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['id']);
 

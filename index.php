@@ -3,7 +3,7 @@ include('config/db_connect.php');
 // write query for all pizzas
 // make query and get result
 $sql = 'SELECT * FROM pizzas ORDER BY createdAt';
-
+// get result from connection
 $result = mysqli_query($conn, $sql);
 
 // fetch result rows as an Array
